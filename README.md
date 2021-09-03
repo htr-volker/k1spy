@@ -59,7 +59,6 @@ You will see a display similar to the log output, which updates over time.
 
 **Note:** k1s.py can be slow to update when accessed via attach
 
-
 ## Installation (Debian/Ubuntu)
 
 To install k1s such that it can be invoked globally, simply run the `install.sh` script:
