@@ -390,7 +390,10 @@ def sprint_pvcs(p_namespace):
         if p_namespace == 'all':
             ns_info=f'[{i.metadata.namespace:{NS_FMT}}] '
 
-        access_modes=",".join(i.status.access_modes)
+        access_modes= str( i.status.access_modes )
+        if i.status.access_modes != None:
+            access_modes=",".join(i.status.access_modes)
+        #access_modes=",".join(i.status.access_modes)
 
         storage_class=''
         if i.spec.storage_class_name:
@@ -664,6 +667,7 @@ def sprint_daemon_sets(p_namespace='all'):
 
     op_lines=[]
     for i in ret.items:
+        image_info = get_image_info(i)
         age, age_hms = get_age(i)
 
         ns_info=''
